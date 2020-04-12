@@ -286,7 +286,7 @@
         // create new map, view and csvlayer
         const gridFields = ["OBJECTID", "Assessment_Unit_Name", "SEZ_Type", "Final_Rating","Conifer_Encroachment_Rating", "Ditches_Rating", "Habitat_Fragmentation_Rating", "Incision_Rating", "Invasive_Rating",
         "Biotic_Integrity_Rating", "Bank_Stability_Rating",
-        "AquaticOrganismPassage_Rating",
+        "AquaticOrganismPassage_Rating", "Ownership_Primary", "Ownership_Secondary"
         ];
         
         const meadowLayer = new FeatureLayer({
@@ -462,7 +462,7 @@
               return field;
             }
           }).map(function(field) {
-            if (field.name === "Assessment_Unit_Name" || field.name === "SEZ_Type" || field.name === "Final_Rating") {
+            if (field.name === "Assessment_Unit_Name" || field.name === "SEZ_Type" || field.name === "Ownership_Primary" || field.name === "Final_Rating") {
               return {
                 field: field.name,
                 label: field.alias,
@@ -555,8 +555,6 @@
         // add layer list button to the top right corner of the view
         view.ui.add(layerListExpand, "top-right");
                 
-        // add the toolbar for the measurement widgets
-        view.ui.add("toolbarDiv", "top-right");
         
         // Create new instance of the Measurement widget
         const measurement = new Measurement();
@@ -565,7 +563,6 @@
         const areaButton = document.getElementById("area");
         const clearButton = document.getElementById("clear");
         
-          
         distanceButton.addEventListener("click", function() {
           distanceMeasurement();
         });
@@ -584,7 +581,7 @@
           view.set({
             container: "viewDiv"
           });
-          // Add the appropriate measurement UI to the bottom-right when activated
+          // Add the appropriate measurement UI to the  when activated
           view.ui.add(measurement, "top-right");
           // Set the views for the widgets
           measurement.view = view;
@@ -745,7 +742,9 @@
             useHeadingEnabled: false  // Don't change orientation of the map
           });
 
-          view.ui.add(track, "top-left");    
+          view.ui.add(track, "top-left"); 
+        // add the toolbar for the measurement widgets
+        view.ui.add("toolbarDiv", "top-right");
       });
   </script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
