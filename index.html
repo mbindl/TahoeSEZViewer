@@ -60,6 +60,14 @@
       .esri-widget--button.active:focus path {
         fill: #e4e4e4;
       }
+      
+    img{
+        max-width: 100%;
+        max-height: 100%;
+        display: block; 
+        margin-left: auto;
+        margin-right: auto;
+    }
 
         .overlay {
             opacity:0;
@@ -287,7 +295,7 @@
         // create new map, view and csvlayer
         const gridFields = ["OBJECTID", "Assessment_Unit_Name", "SEZ_Type", "Final_Rating","Conifer_Encroachment_Rating", "Ditches_Rating", "Habitat_Fragmentation_Rating", "Incision_Rating", "Invasive_Rating",
         "Biotic_Integrity_Rating", "Bank_Stability_Rating",
-        "AquaticOrganismPassage_Rating", "Ownership_Primary", "Ownership_Secondary"
+        "AquaticOrganismPassage_Rating", "Ownership_Primary", "Ownership_Secondary", "Comments"
         ];
         
         const meadowLayer = new FeatureLayer({
@@ -791,8 +799,8 @@
                 <div class="overlay-inner">
                   <div class="message">
                       <p><h2>The Stream Environment Zones of Lake Tahoe</h2></p> 
+                        <p><img src="/lib/SEZ_Map_Instructions.jpg" alt="" /></p>
                       <p>Use this application to visualize <b>CURRENT CONDITIONS</b> of stream environment zones, <b>SEARCH</b> for a meadow or stream, <b>FILTER</b> monitoring attributes, <b>EXPLORE</b> monitoring data such as streambank erosion and channel incision, <b>LOCATE</b> where you are, and <b>TRACK</b> where you've been.</p>
-<!--                        <p><img src="/lib/SEZ_Map_Instructions.jpg" alt="" /></p>-->
                   </div>
                 </div>
             </div>
